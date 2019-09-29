@@ -130,3 +130,7 @@ PRODUCT_BOOT_JARS += \
 # ThermalController app
 PRODUCT_PACKAGES += \
     ThermalController
+
+# Wallpapers
+PRODUCT_PACKAGES += \
+    WallpapersBReel2019
