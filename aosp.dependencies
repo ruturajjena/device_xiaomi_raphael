@@ -1,0 +1,8 @@
+[
+  {
+    "remote": "github",
+    "repository": "propritary_vendor_xiaomi_new",
+    "target_path": "vendor/xiaomi",
+    "branch": "pie"
+  }
+]
