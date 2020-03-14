@@ -7,6 +7,10 @@ on init
 on boot
     write /sys/class/thermal/thermal_message/sconfig 10
 
+    # Allow system to read measured screen FPS
+    chown system graphics /sys/class/drm/card0/sde-crtc-0/measured_fps
+    chmod 0660 /sys/class/drm/card0/sde-crtc-0/measured_fps
+
 on post-fs
     mount none /system/etc/goodix/BMatrix.so /mnt/vendor/persist/goodix/BMatrix.so bind
     mount none /system/etc/goodix/caliParamsInfo.so /mnt/vendor/persist/goodix/caliParamsInfo.so bind
