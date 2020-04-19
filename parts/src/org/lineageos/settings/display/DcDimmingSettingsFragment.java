@@ -16,9 +16,10 @@
 
 package org.lineageos.settings.display;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.view.MenuItem;
+
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
@@ -31,8 +32,8 @@ import vendor.xiaomi.hardware.displayfeature.V1_0.IDisplayFeature;
 public class DcDimmingSettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
-    private SwitchPreference mDcDimmingPreference;
     private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
+    private SwitchPreference mDcDimmingPreference;
     private IDisplayFeature mDisplayFeature;
 
     @Override
@@ -41,7 +42,8 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
         try {
             mDisplayFeature = IDisplayFeature.getService();
-        } catch(Exception e) {
+        } catch (RemoteException e) {
+            // Do nothing
         }
         mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
         mDcDimmingPreference.setEnabled(true);
@@ -69,7 +71,8 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
         if (mDisplayFeature == null) return;
         try {
             mDisplayFeature.setFeature(0, 20, enable, 255);
-        } catch(Exception e) {
+        } catch (RemoteException e) {
+            // Do nothing
         }
     }
 }
