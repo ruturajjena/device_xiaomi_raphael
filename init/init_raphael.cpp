@@ -110,7 +110,7 @@ void vendor_load_properties() {
     property_override("org.evolution.build_donate_url", "https://paypal.me/joeyhuab");
     property_override("org.evolution.build_maintainer", "Joey Huab");
     property_override("org.evolution.build_support_url", "https://t.me/EvolutionXRaphael");
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ2A.200405.005/6254899:user/release-keys");
+    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "google/coral/coral:10/QQ2A.200501.001.B2/6352890:user/release-keys");
 
     load_dalvikvm_properties();
 }
